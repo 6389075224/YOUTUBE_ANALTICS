@@ -1,13 +1,15 @@
 """
 YouTube Analytics Pro — Main Entry Point
-streamlit run app.py
 """
 
 import streamlit as st
 import sys
 import os
 
-sys.path.insert(0, os.path.dirname(__file__))
+# ── Path fix for Streamlit Cloud & local ─────────────────────────────────────
+ROOT = os.path.dirname(os.path.abspath(__file__))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
 
 from utils.styles import DARK_CSS, LIGHT_CSS
 from services.youtube_api import detect_input_type, fetch_channel_data, fetch_videos
@@ -171,41 +173,41 @@ health = st.session_state.health
 insights = st.session_state.insights
 
 if page == "🏠 Executive Dashboard":
-    from pages.overview import render
+    from modules.overview import render
     render(channel, df, kpis, health, insights)
 
 elif page == "📊 Video Analytics":
-    from pages.video_analytics import render
+    from modules.video_analytics import render
     render(df)
 
 elif page == "💡 Content Insights":
-    from pages.content_insights import render
+    from modules.content_insights import render
     render(df)
 
 elif page == "🔥 Engagement Analytics":
-    from pages.engagement import render
+    from modules.engagement import render
     render(df)
 
 elif page == "⚡ Advanced Metrics":
-    from pages.advanced_metrics import render
+    from modules.advanced_metrics import render
     render(channel, df, kpis)
 
 elif page == "🤖 AI Insights Engine":
-    from pages.ai_insights import render
+    from modules.ai_insights import render
     render(channel, df, kpis, health, insights)
 
 elif page == "❤️ Channel Health":
-    from pages.channel_health import render
+    from modules.channel_health import render
     render(channel, kpis, df, health)
 
 elif page == "🆚 Competitor Compare":
-    from pages.competitor import render
+    from modules.competitor import render
     render()
 
 elif page == "🧪 Analytics Lab":
-    from pages.analytics_lab import render
+    from modules.analytics_lab import render
     render(df)
 
 elif page == "📤 Export Center":
-    from pages.export_center import render
+    from modules.export_center import render
     render(channel, df, kpis, health, insights)
