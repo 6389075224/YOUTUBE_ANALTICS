@@ -55,6 +55,18 @@ streamlit run app.py
 
 Open your browser at `http://localhost:8501`
 
+# 🚀 YouTube Analytics Pro
+
+A professional real-time YouTube Analytics Dashboard built using Python, Streamlit, Plotly, and YouTube Data API v3.
+
+## 🌐 Live Demo
+
+🔗 https://j2co2hmyvs8hhwzchlmpdk.streamlit.app/
+
+## 💻 GitHub Repository
+
+🔗 https://github.com/6389075224/YOUTUBE_ANALTICS
+
 ---
 
 ## 📁 Project Structure
